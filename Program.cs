@@ -13,21 +13,20 @@ namespace ChatQuickstart
 
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
-
+                .AddJsonFile("appsettings.json", optional: true);
             IConfigurationRoot configuration = builder.Build();
 
             OpenAIClient client = new OpenAIClient(
-                new Uri(configuration["Azure:OpenAI:Uri"]),
-                new AzureKeyCredential(configuration["Azure:OpenAI:Key"]));
+                new Uri(configuration["Azure:OpenAI:Uri"] ?? "<<OPEN_AI_URI>>"),
+                new AzureKeyCredential(configuration["Azure:OpenAI:Key"] ?? "<<OPEN_AI_KEY>>"));
 
-            Uri endpoint = new Uri(configuration["Azure:CommunicationServices:Endpoint"]);
+            Uri endpoint = new Uri(configuration["Azure:CommunicationServices:Endpoint"] ?? "<<AZURE_COMMUNICATION_URL>>");
 
-            var botToken = configuration["Azure:CommunicationServices:Bot:Token"];
-            var botId = configuration["Azure:CommunicationServices:Bot:Id"];
+            var botToken = configuration["Azure:CommunicationServices:Bot:Token"] ?? "<<BOT_TOKEN>>";
+            var botId = configuration["Azure:CommunicationServices:Bot:Id"] ?? "<<BOT_ID>>";
 
-            var userToken = configuration["Azure:CommunicationServices:User:Token"];
-            var userId = configuration["Azure:CommunicationServices:User:Id"];
+            var userToken = configuration["Azure:CommunicationServices:User:Token"] ?? "<<USER_TOKEN>>";
+            var userId = configuration["Azure:CommunicationServices:User:Id"] ?? "<<USER_ID>>";
 
 
             // Create a new ChatClient for the bot using its token.
