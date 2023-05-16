@@ -2,20 +2,20 @@
 This document will guide you on how to use this provided chatbot code, which integrates Azure Communication Services and Azure OpenAI to create a chatbot application.
 
 ## Prerequisites
-An active Azure subscription.
-An active OpenAI subscription.
-.NET Core SDK installed on your system.
+- An active Azure subscription.
+- An active OpenAI subscription.
+- .NET Core SDK installed on your system.
 
 ## Configuration
 This code relies on certain configurations to be present in an appsettings.json file. The required settings include:
 
-Azure:OpenAI:Uri: The OpenAI Uri.
-Azure:OpenAI:Key: The OpenAI key.
-Azure:CommunicationServices:Endpoint: The Azure Communication Services Endpoint URL.
-Azure:CommunicationServices:Bot:Token: The token for the bot.
-Azure:CommunicationServices:Bot:Id: The id for the bot.
-Azure:CommunicationServices:User:Token: The token for the user.
-Azure:CommunicationServices:User:Id: The id for the user.
+- Azure:OpenAI:Uri: The OpenAI Uri.
+- Azure:OpenAI:Key: The OpenAI key.
+- Azure:CommunicationServices:Endpoint: The Azure Communication Services Endpoint URL.
+- Azure:CommunicationServices:Bot:Token: The token for the bot.
+- Azure:CommunicationServices:Bot:Id: The id for the bot.
+- Azure:CommunicationServices:User:Token: The token for the user.
+- Azure:CommunicationServices:User:Id: The id for the user.
 
 ## Code Flow
 The code begins by reading the necessary configuration from appsettings.json.
